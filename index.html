@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chatbot reader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="chat-launcher" id="chatLauncher">
+    <img src="rob.png" alt="robot" class="robot-img">
+</div>
+
+<div class="app hidden" id="chatApp">
+    <div class="phone">
+        <div class="page welcome-page" id="welcomePage">
+            <div class="robot-icon">
+                <img src="rob.png" alt="robot" class="robot-img">
+            </div>
+            <h1>Remo <span> Chat</span></h1>
+            <button class="start-btn" id="startBtn">
+                Lets Go
+            </button>
+        </div>
+
+        <div class="page chat-page hidden" id="chatPage">
+            <div class="chat-header">
+                <span class="material-icons back-btn" id="backBtn">arrow_back</span>
+                <div class="header-title">
+                    <div class="header-avatar">
+                        <img src="rob.png" alt="robot" class="robot-img">
+                    </div>
+                    <div>
+                        <div class="title">Remo</div>
+                        <div class="status">I am here to help you</div>
+                    </div>
+                </div>
+                <span class="material-icons" id="searchBtn" style="cursor:pointer;" title="Search">search</span>
+                <span class="material-icons" id="exportBtn" style="cursor:pointer;" title="Export chat">download</span>
+                <span class="material-icons" id="darkModeBtn" style="cursor:pointer;" title="Toggle dark mode">dark_mode</span>
+                <span class="material-icons" id="refreshBtn" style="cursor:pointer;">refresh</span>
+                <span class="material-icons close-btn" id="closeBtn">close</span>
+            </div>
+
+            <div id="searchBar" class="search-bar hidden">
+                <input type="text" id="searchInput" placeholder="Search messages..." />
+                <span class="material-icons search-nav" id="searchPrev">expand_less</span>
+                <span class="material-icons search-nav" id="searchNext">expand_more</span>
+                <span id="searchCount" class="search-count"></span>
+                <span class="material-icons search-close" id="searchClose">close</span>
+            </div>
+
+            <div class="chat-body" id="chat-box">
+                <div class="bot-row">
+                    <div class="bot-avatar">
+                        <img src="rob.png" alt="Bot" class="bot-img">
+                    </div>
+                     <div class="bot-msg">
+                        Hi 👋 Ask your Queries
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <label for="imageUpload" style="cursor:pointer;display:flex;align-items:center;" title="Upload image">
+                    <span class="material-icons" style="color:#777;font-size:22px;">image</span>
+                    <input type="file" id="imageUpload" accept="image/*" style="display:none">
+                </label>
+                <input type="text" id="userInput" placeholder="Ask any question..." />
+                <button class="send-btn">
+                    <span class="material-icons">send</span>
+                </button>
+            </div>
+
+            <div id="imgPreviewBar" class="hidden" style="display:flex;align-items:center;gap:8px;padding:6px 12px;background:#f0f0f0;border-top:1px solid #ddd;font-size:12px;color:#555;">
+                <img id="imgPreviewThumb" src="" style="width:32px;height:32px;object-fit:cover;border-radius:6px;border:1px solid #ccc;">
+                <span id="imgPreviewName" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
+                <span class="material-icons" id="removeImg" style="cursor:pointer;font-size:18px;color:#999;">close</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+    function goToChat() {
+        document.getElementById("welcomePage").classList.add("hidden");
+        document.getElementById("chatPage").classList.remove("hidden");
+    }
+    function goBack() {
+        document.getElementById("chatPage").classList.add("hidden");
+        document.getElementById("welcomePage").classList.remove("hidden");
+    }
+</script>
+</body>
+</html>
